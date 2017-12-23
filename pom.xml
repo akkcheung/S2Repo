@@ -54,11 +54,20 @@
 			<artifactId>slf4j-log4j12</artifactId>
 			<version>1.5.6</version>
 		</dependency><!-- DB connection pool configuration -->
+		
+<!-- 		<dependency> -->
+<!-- 			<groupId>mysql</groupId> -->
+<!-- 			<artifactId>mysql-connector-java</artifactId> -->
+<!-- 			<version>${mysql.version}</version>		 -->
+<!-- 		</dependency> -->
+
+		<!-- H2 Database -->
 		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-			<version>${mysql.version}</version>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<version>1.4.193</version>
 		</dependency>
+		
 		<!-- jdbi configuration -->
 		<dependency>
 			<groupId>org.jdbi</groupId>
@@ -66,11 +75,11 @@
 			<version>${jdbi.version}</version>
 		</dependency>
 		
-<!-- 		<dependency> -->
-<!-- 		    <groupId>org.apache.commons</groupId> -->
-<!-- 		    <artifactId>commons-dbcp2</artifactId> -->
-<!-- 		    <version>2.1</version> -->
-<!-- 		</dependency> -->
+		<dependency>
+		    <groupId>org.apache.commons</groupId>
+		    <artifactId>commons-dbcp2</artifactId>
+		    <version>2.0.1</version>
+		</dependency>
 
 		</dependencies>
   

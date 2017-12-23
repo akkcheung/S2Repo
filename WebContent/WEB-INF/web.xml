@@ -26,6 +26,12 @@
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
 	
+	<listener>
+	  <listener-class>
+            com.example.util.AppListener
+          </listener-class>
+	</listener>
+	
 	<welcome-file-list>
 	<welcome-file>first.jsp</welcome-file>
 	</welcome-file-list>	
