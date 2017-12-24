@@ -41,7 +41,8 @@
 				</td>
             </tr>
             <tr>
-                <td colspan="2" align="center"><input type="submit" value="Save"></td>
+                <td colspan="1" align="center"><input type="submit" value="Save"></td>            
+                <td><button type="cancel" onclick="window.location='./';return false;">Cancel</button>
             </tr>
         </table>
         </form>

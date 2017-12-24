@@ -9,3 +9,15 @@ https://github.com/chris-bailey/JSP-Servlets-H2-Embedded-Database/blob/master/sr
 http://www.mkyong.com/struts2/struts-2-quartz-scheduler-integration-example/
 
 https://www.journaldev.com/2509/java-datasource-jdbc-datasource-example
+
+2017-12-25
+
+Test :
+
+https://s2repo.herokuapp.com/contactApp/
+
+deploy :
+
+mvn package
+
+heroku war:deploy target/s2repo-0.0.1-SNAPSHOT.war --app s2repo

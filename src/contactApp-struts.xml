@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+	<package name="contactApp" namespace="/contactApp" extends="struts-default">
+
+		<action name="" class="com.example.controller.HomeController"
+			method="listContact">
+			<result name="success">
+				/WEB-INF/content/contactApp/home.jsp
+			</result>
+		</action>
+
+		<action name="newContact" class="com.example.controller.HomeController"
+			method="newContact">
+			<result name="success">
+				/WEB-INF/content/contactApp/ContactForm.jsp
+			</result>
+		</action>
+
+		<action name="saveContact" class="com.example.controller.HomeController"
+			method="saveContact">
+			<result name="success" type="redirect">
+				<param name="location">
+					./
+				</param>
+			</result>
+		</action>
+
+		<action name="editContact" class="com.example.controller.HomeController"
+			method="editContact">
+			<result name="success">
+				/WEB-INF/content/contactApp/ContactForm.jsp
+			</result>
+		</action>
+
+		<action name="deleteContact" class="com.example.controller.HomeController"
+			method="deleteContact">
+			<result name="success" type="redirect">
+				<param name="location">
+					./
+				</param>
+			</result>
+		</action>
+
+	</package>
+
+</struts>
