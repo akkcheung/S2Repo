@@ -1,6 +1,8 @@
 package com.example.controller;
 
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import org.skife.jdbi.v2.DBI;
 
@@ -19,6 +21,8 @@ public class HomeController extends ActionSupport {
 	private List<Contact> listContact ;
 	
 	private Contact contact;
+	
+	private int id ;
 	
 	public String listContact() {
 		DBI dbi = new DBI(DataSourceFactory.getH2DataSource());		
@@ -49,7 +53,7 @@ public class HomeController extends ActionSupport {
 	public String deleteContact() {
 		DBI dbi = new DBI(DataSourceFactory.getH2DataSource());
 		ContactDAO dao = dbi.onDemand(ContactDAO.class);
-		dao.delete(contact.getId());
+		dao.delete(id);
 		
 		return SUCCESS;
 	}
@@ -58,7 +62,9 @@ public class HomeController extends ActionSupport {
 		DBI dbi = new DBI(DataSourceFactory.getH2DataSource());
 		ContactDAO dao = dbi.onDemand(ContactDAO.class);
 		
-		this.contact = dao.findById(contact.getId());
+		
+		Logger.getLogger(HomeController.class.getName()).log(Level.INFO, "id->" + id, "");
+		this.contact = dao.findById(id);
 		
 		return SUCCESS;
 	}
@@ -77,6 +83,14 @@ public class HomeController extends ActionSupport {
 
 	public void setContact(Contact contact) {
 		this.contact = contact;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	

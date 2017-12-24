@@ -47,6 +47,22 @@
 				</param>
 			</result>
 		</action> 
+		
+		<action name="editContact" class="com.example.controller.HomeController"
+			method="editContact">
+			<result name="success">
+				/WEB-INF/content/contactApp/ContactForm.jsp
+			</result>
+		</action> 
+	
+		<action name="deleteContact" class="com.example.controller.HomeController"
+			method="deleteContact">
+			<result name="success" type="redirect">
+				<param name="location">
+					./
+				</param>
+			</result>
+		</action> 
 	
 	</package>
 	

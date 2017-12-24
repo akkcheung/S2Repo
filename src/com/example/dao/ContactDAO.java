@@ -13,7 +13,7 @@ import com.example.model.Contact;
 @RegisterMapper(ContactMapper.class)
 public interface ContactDAO {
 
-	@SqlQuery("select contact_id , name, email, address telephone from contact")
+	@SqlQuery("select contact_id , name, email, address, telephone from contact")
 	List <Contact> listAll();
 	
 	@SqlQuery("select contact_id , name, email, address, telephone from contact where contact_id = :id")
@@ -22,7 +22,7 @@ public interface ContactDAO {
 	@SqlUpdate("insert into contact (name, email, address, telephone) values (:c.name , :c.email, :c.address, :c.telephone)")
 	int insert(@BindBean("c") Contact contact);
 	
-	@SqlUpdate("update contact set name=:c.name , email=:o.email, address=:c.address, telephone=:c.telephone where id=:c.id")
+	@SqlUpdate("update contact set name=:c.name , email=:c.email, address=:c.address, telephone=:c.telephone where contact_id=:c.id")
 	int update(@BindBean("c") Contact contact);
 	
 	@SqlUpdate("delete from contact where contact_id=:id")
