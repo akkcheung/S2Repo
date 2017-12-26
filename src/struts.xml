@@ -25,4 +25,6 @@
 	
 	<include file="contactApp-struts.xml"/>
 	
+	<include file="petclinic-struts.xml"/>
+	
 </struts>

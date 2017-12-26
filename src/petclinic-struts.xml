@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+	<package name="petclinic" namespace="/petclinic" extends="struts-default">
+
+		<action name="">
+			<result>/WEB-INF/content/petclinic/welcome.jsp</result>
+		</action>
+		
+		<action name="findOwners">
+			<result>/WEB-INF/content/petclinic/findOwners.jsp</result>
+		</action>
+		
+		<action name="searchOwners" class="s2repo.petclinic.controller.OwnerController"
+			method="search">
+			<result name="success">
+				/WEB-INF/content/petclinic/ownerTable.jsp
+			</result>
+		</action> 
+		
+		<action name="newOwner">
+			<result>/WEB-INF/content/petclinic/createOrUpdateOwnerForm.jsp</result>
+		</action>
+		
+		<action name="editOwner" class="s2repo.petclinic.controller.OwnerController"
+			method="edit">			
+			<result name="success">/WEB-INF/content/petclinic/createOrUpdateOwnerForm.jsp</result>
+		</action>
+		
+		<action name="changeOwner" class="s2repo.petclinic.controller.OwnerController"
+			method="change">
+			<result name="success">
+				/WEB-INF/content/petclinic/changeSuccess.jsp
+			</result>
+		</action> 
+		
+	</package>
+
+</struts>

@@ -1,12 +1,11 @@
 package com.example.util;
 
-import java.util.List;
-
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
 import com.example.data.ContactDB;
+import s2repo.petclinic.data.PetClinicDB;
 
 public class AppListener implements ServletContextListener {
 	;
@@ -30,6 +29,8 @@ public class AppListener implements ServletContextListener {
 		// List<Product> products = ProductDB.createList();
 		// sc.setAttribute("products", products);
 
+		PetClinicDB.createPopulateH2();
+		
 	}
 
 }
