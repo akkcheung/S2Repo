@@ -11,17 +11,15 @@
 	<jsp:include page="common.jsp" />
 
 	<!-- 	<div class="vertical-center"> -->
-	<!-- 		<div class="container"> -->
+			<div class="container">
 
-	<div class="col-lg-10 col-lg-offset-1 text-center">
+<!-- 	<div class="col-lg-10 col-lg-offset-1 text-center"> -->
 			<jsp:include page="menu.jsp">
 				<jsp:param name="select" value="home" />
 			</jsp:include>
 
-
-
-			<h3>Welcome !</h3>
-
+			<br />
+			<h3><p class="text-center">Welcome !</p></h3>
 
 	</div>
 </body>

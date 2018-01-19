@@ -31,10 +31,50 @@
 			<result name="success">/WEB-INF/content/petclinic/createOrUpdateOwnerForm.jsp</result>
 		</action>
 		
-		<action name="changeOwner" class="s2repo.petclinic.controller.OwnerController"
+		<action name="saveOwner" class="s2repo.petclinic.controller.OwnerController"
 			method="change">
 			<result name="success">
 				/WEB-INF/content/petclinic/changeSuccess.jsp
+			</result>
+		</action>
+		
+		<action name="newPet" class="s2repo.petclinic.controller.PetController" method="newPet">
+			<result>/WEB-INF/content/petclinic/createOrUpdatePetForm.jsp</result>
+		</action>
+		
+		<action name="editPet" class="s2repo.petclinic.controller.PetController" method="edit">			
+			<result name="success">/WEB-INF/content/petclinic/createOrUpdatePetForm.jsp</result>
+		</action>
+		
+		<action name="savePet" class="s2repo.petclinic.controller.PetController"
+			method="change">
+			<result name="success">
+				/WEB-INF/content/petclinic/changeSuccess.jsp
+			</result>
+		</action>
+		
+		<action name="newVisit" class="s2repo.petclinic.controller.VisitController" method="newVisit">
+			<result>/WEB-INF/content/petclinic/createOrUpdateVisitForm.jsp</result>
+		</action>
+		
+		<action name="editVisit" class="s2repo.petclinic.controller.VisitController" method="edit">			
+			<result name="success">/WEB-INF/content/petclinic/createOrUpdateVisitForm.jsp</result>
+		</action>
+		
+		<action name="saveVisit" class="s2repo.petclinic.controller.VisitController" method="change">
+			<result name="success">
+				/WEB-INF/content/petclinic/changeSuccess.jsp
+			</result>
+		</action>
+		
+		<action name="findVets">
+			<result>/WEB-INF/content/petclinic/findVets.jsp</result>
+		</action>
+		
+		<action name="searchVets" class="s2repo.petclinic.controller.VetController"
+			method="search">
+			<result name="success">
+				/WEB-INF/content/petclinic/vetsTable.jsp
 			</result>
 		</action> 
 		

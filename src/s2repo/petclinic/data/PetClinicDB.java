@@ -10,6 +10,8 @@ public class PetClinicDB {
 		ConnectionPool pool = ConnectionPool.getInstance();
 		Connection conn = pool.getConnection();
 
+		System.out.println(conn.toString());
+		
 		final String createVetsTbl = "DROP TABLE IF EXISTS vets ;" 
 		+ "CREATE TABLE vets (" 
 		+ "`id` int(11) NOT NULL AUTO_INCREMENT," 
@@ -26,9 +28,9 @@ public class PetClinicDB {
 		final String createVetSpecialtiesTbl= "DROP TABLE IF EXISTS vet_specialties ;" 
 				+ "CREATE TABLE vet_specialties (" 
 				+ "`vet_id` int(11) NOT NULL ,"
-				+ "`speciality_id` int(11) NOT NULL)";
+				+ "`specialty_id` int(11) NOT NULL)";
 		
-		final String alterVetSpecialitiesTbl = "Alter Table vet_specialities add constraint unique(vet_id, speciality_id)";
+		final String alterVetSpecialtiesTbl = "Alter Table vet_specialties add constraint unique(vet_id, specialty_id)";
 		
 		final String createTypesTbl = "DROP TABLE IF EXISTS `types` ;" 
 				+ "CREATE TABLE `types` (" 

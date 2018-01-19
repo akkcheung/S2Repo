@@ -8,7 +8,11 @@ import com.opensymphony.xwork2.ActionSupport;
 import s2repo.petclinic.util.DataSourceFactory;
 
 import s2repo.petclinic.model.Owner;
+import s2repo.petclinic.model.Pet;
+import s2repo.petclinic.model.Visit;
 import s2repo.petclinic.dao.OwnerDao;
+import s2repo.petclinic.dao.PetDao;
+import s2repo.petclinic.dao.VisitDao;
 
 public class OwnerController extends ActionSupport {
 
@@ -27,6 +31,8 @@ public class OwnerController extends ActionSupport {
 	private int id;
 	
 	private Owner owner;
+	
+	private String _method ; // intercooler Js parameter
 	
 	public String list()  {
 	
@@ -54,6 +60,25 @@ public class OwnerController extends ActionSupport {
 		DBI dbi = new DBI(DataSourceFactory.getH2PetClinicDataSource());		
 		OwnerDao dao = dbi.onDemand(OwnerDao.class);
 		setOwner(dao.findById(id));
+		
+		PetDao petDao = dbi.onDemand(PetDao.class);
+		List <Pet> pets = petDao.listByOwnerId(owner.getId());
+		
+		VisitDao visitDao = dbi.onDemand(VisitDao.class);
+		
+		List <Visit> visits;
+		
+		
+		for (int i=0;i < pets.size() ; i++ ) {
+			
+			visits = visitDao.listByPetId(pets.get(i).getId());
+			
+			for (int j=0 ; j< visits.size() ; j++ ) {
+				pets.get(i).addVisit(visits.get(j));
+			}
+			
+			owner.addPet(pets.get(i));
+		}
 		
 		return SUCCESS;
 	}
@@ -87,15 +112,6 @@ public class OwnerController extends ActionSupport {
 		this.result = result;
 	}
 
-//	public String getType() {
-//		return type;
-//	}
-//
-//
-//	public void setType(String type) {
-//		this.type = type;
-//	}
-
 	public String getLastName() {
 		return lastName;
 	}
@@ -103,8 +119,6 @@ public class OwnerController extends ActionSupport {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
-
-	
 
 	public int getId() {
 		return id;
@@ -120,6 +134,14 @@ public class OwnerController extends ActionSupport {
 
 	public void setOwner(Owner owner) {
 		this.owner = owner;
+	}
+
+	public String get_method() {
+		return _method;
+	}
+
+	public void set_method(String _method) {
+		this._method = _method;
 	}
 	
 	

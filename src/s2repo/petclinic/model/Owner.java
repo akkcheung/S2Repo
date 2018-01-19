@@ -30,22 +30,11 @@ public class Owner extends Person {
 	}
 
 	public List<Pet> getPets() {
-		List<Pet> sortedPets = new ArrayList<>(getPetsInternal());
-
-		// Todo
-		// PropertyComparator.sort(sortedPets, new MutableSortDefinition("name", true,
-		// true));
-		// return Collections.unmodifiableList(sortedPets);
-
-		return null;
+		return new ArrayList<Pet>(getPetsInternal());
 	}
 
 	public void addPet(Pet pet) {
-		// Todo
-		// if (pet.isNew()) {
-		// getPetsInternal().add(pet);
-		// }
-		pet.setOwner(this);
+			getPetsInternal().add(pet);
 	}
 
 	public String getAddress() {

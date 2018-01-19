@@ -18,30 +18,15 @@ public class Pet extends NamedEntity {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	private Date birthDate;
+	private Date birthday;  //datetime
+	
 	private PetType type;
 	private Owner owner;
 
 	private Set<Visit> visits = new LinkedHashSet<>();
-
-	protected Set<Visit> getVisitsInternal() {
-		if (this.visits == null) {
-			this.visits = new HashSet<>();
-		}
+	
+	public Set <Visit> getVisits() {
 		return this.visits;
-	}
-
-	protected void setVisitsInternal(Set<Visit> visits) {
-		this.visits = visits;
-	}
-
-	public List<Visit> getVisits() {
-		List<Visit> sortedVisits = new ArrayList<>(getVisitsInternal());
-		// PropertyComparator.sort(sortedVisits,
-		// new MutableSortDefinition("date", false, false));
-		// return Collections.unmodifiableList(sortedVisits);
-
-		return null;
 	}
 
 	public void addVisit(Visit visit) {
@@ -49,12 +34,12 @@ public class Pet extends NamedEntity {
 		visit.setPetId(this.getId());
 	}
 
-	public Date getBirthDate() {
-		return birthDate;
+	public Date getBirthday() {
+		return birthday;
 	}
 
-	public void setBirthDate(Date birthDate) {
-		this.birthDate = birthDate;
+	public void setBirthday(Date birthday) {
+		this.birthday = birthday;
 	}
 
 	public PetType getType() {
@@ -73,5 +58,14 @@ public class Pet extends NamedEntity {
 		this.owner = owner;
 	}
 
-	
+	protected Set<Visit> getVisitsInternal() {
+		if (this.visits == null) {
+			this.visits = new HashSet<>();
+		}
+		return this.visits;
+	}
+
+	protected void setVisitsInternal(Set<Visit> visits) {
+		this.visits = visits;
+	}
 }

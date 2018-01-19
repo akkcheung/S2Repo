@@ -13,7 +13,7 @@
 		<div>
 			<ul class="nav navbar-nav">
 				<li><a href="./findOwners">Owners</a></li>
-				<li><a href="#">Veterinarians</a></li>
+				<li><a href="./findVets">Veterinarians</a></li>
 				<li><a href="#">About</a></li>
 			</ul>
 		</div>

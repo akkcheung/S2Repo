@@ -10,17 +10,21 @@
 
 <jsp:include page="common.jsp" />
 
+<!-- 		<div class="col-lg-10 col-lg-offset-1"> -->
 
-
-		<div class="col-lg-10 col-lg-offset-1">
+<div class="container">
 		
 		<jsp:include page="menu.jsp">
 			<jsp:param name="select" value="findOwners"/>
 		</jsp:include>
 		
+		<br />
+		<h3><p class="text-center">Owner Information</p></h3>
+		
 		<div id="message">
 		</div>
 		
+		<br />
 		<form class="form-horizontal" id="form">
 			
  			<input type="hidden" name="owner.id" value="${owner.id}"> 
@@ -68,26 +72,68 @@
 			<div class="form-group">
 				<div class="col-xs-10">
 						
-					<button class="btn btn-default" id="OwnerSave" type="submit" ic-post-to="./changeOwner.action" 
+					<button class="btn btn-default" id="OwnerSave" type="submit" ic-post-to="./saveOwner.action" 
 						ic-target="#message"
 						ic-on-success='$( "#OwnerEdit" ).trigger( "click" );'
 						>
 						
 						<c:set value="${owner.id}" var="var_id"/>
-						<c:out value="${empty var_id ? 'Add': 'Update'}"/> Owner											
+<%-- 						<c:out value="${empty var_id ? 'Add': 'Update'}"/> --%>  
+						Save Owner
 					</button>
-				
-<!-- 					<button class="btn btn-primary" id="OwnerEdit" type="button" >Edit Owner</button> -->
-				
-					<a class="btn btn-default" href="./findOwners">Cancel</a>
-				
-					<a class="btn btn-default" href="pet-new">Add Pet</a>
+									
+					<c:choose>
+						<c:when test="${not empty var_id}">
+							<a class="btn btn-default" href="./newPet?ownerId=${owner.id}">Add
+								New Pet</a>
+						</c:when>
+					</c:choose>
+					
+					<a class="btn btn-default" href="./findOwners">Back</a>
 				</div>
 			</div>
 			
 		</form>
 		
+		<br />
+		<h3><p class="text-center">Pets and Visits</p></h3>
 		
+		<br />		
+		<table class="table table-hover">
+		<c:forEach items="${owner.pets}" var="pet"> 
+		  <tr>
+		  	<td>
+			    <br />Pet Name : ${pet.name}
+			    <br />Birthday : ${pet.birthday}
+			    <br />Type : ${pet.type.name}
+			    <br />			 
+			    <a class="btn btn-default" href="./editPet?id=${pet.id}&ownerId=${owner.id}">Edit Pet</a>
+			 		    
+		    </td>
+		    <td>
+		    	<table class="table table-hover">
+		    	<thead>
+					<tr>
+		    		<th>Visit Date</th>
+		    		<th>Description</th>
+		    	</tr>
+		    	<tbody>		    	
+		    	<c:forEach items="${pet.visits}" var="visit">
+		    	<tr>			 
+				    <td> ${visit.date} </td>
+				    <td> ${visit.description} </td>
+				</tr>				
+			    </c:forEach>
+			    <tr>
+					<td><a class="btn btn-default" href="./newVisit?petId=${pet.id}&ownerId=${owner.id}">Add Visit</a></td>
+					<td></td>
+				</tr> 
+			    </tbody>
+			    </table>
+		    </td>
+		  </tr>
+		</c:forEach>
+		</table>
 		
 	</div>
 
@@ -124,6 +170,6 @@
 // 		});
 		
 // 	});
-</script> -->
+<!-- </script> --> 
 
 </html>

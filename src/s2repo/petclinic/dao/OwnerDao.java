@@ -22,21 +22,14 @@ public interface OwnerDao {
 	
 	@SqlQuery("select id , first_name, last_name, city, telephone, address from owners where last_name like :last_name")
 	List <Owner> search(@Bind("last_name") String last_name);
-	
-//	@SqlQuery("select id , first_name, last_name from owners limit :limit offset :offset")
-//	List <Pet> getPersonPage(@Bind("offset") int offset, @Bind("limit") int limit );
-//
-//	@SqlQuery("SELECT COUNT(*) FROM owners")
-//	int getPersonCount();
-	
-//	@SqlUpdate("insert into owners (first_name, last_name, city, telephone, address) values (:first_name , :last_name, :city, :telephone, :address")
-//	int insert(@Bind("first_name") String first_name, @Bind("last_name") String last_name, @Bind("city") String city, @Bind("telephone") String telephone, @Bind("address") String address);
-	
+		
 	@SqlUpdate("insert into owners (first_name, last_name, city, telephone, address) values (:o.firstName , :o.lastName, :o.city, :o.telephone, :o.address)")
 	int insert(@BindBean("o") Owner owner);
 	
 	@SqlUpdate("update owners set first_name=:o.firstName , last_name=:o.lastName, city=:o.city, telephone=:o.telephone, address=:o.address where id=:o.id")
 	int update(@BindBean("o") Owner owner);
+	
+	
 	
 	void close();
 }

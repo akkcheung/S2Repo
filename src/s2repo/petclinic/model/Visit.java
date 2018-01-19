@@ -11,9 +11,9 @@ public class Visit extends BaseEntity {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	 private Date date;
-	 private String description;
-	 private Integer petId;
+	private Date date;
+	private String description;
+	private Integer petId;
 	
 	public Visit()  {
         this.date = new Date();

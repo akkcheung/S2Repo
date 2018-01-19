@@ -26,9 +26,11 @@ public class AppListener implements ServletContextListener {
 		ContactDB.createPopulateH2();
 
 		// Retreive products from database and place into ServletContext.
-		// List<Product> products = ProductDB.createList();
+		// List<Product> products = ProductDB.createList();yste
 		// sc.setAttribute("products", products);
 
+		// System.out.println("populate h2 db");
+		
 		PetClinicDB.createPopulateH2();
 		
 	}
